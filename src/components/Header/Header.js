@@ -1,10 +1,14 @@
-import React from 'react'
 import { Layout } from 'antd'
+import React from 'react'
 
 const Header = () => {
   return (
     <Layout.Header>
-      <img src="logo.png" style={{ height: '100%' }} />
+      <img
+        alt="bank of america logo"
+        src="logo.png"
+        style={{ height: '100%' }}
+      />
     </Layout.Header>
   )
 }

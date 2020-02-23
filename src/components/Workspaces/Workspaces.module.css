@@ -1,0 +1,16 @@
+.Root {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.Filters {
+  height: 70px;
+  border-bottom: 1px solid red;
+}
+.Table {
+  flex: 1;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #555;
+  margin: 0.5rem;
+}
