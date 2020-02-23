@@ -1,14 +1,13 @@
-import { Layout } from 'antd'
+import { Layout, Icon } from 'antd'
 import React from 'react'
+import './Header.less'
 
 const Header = () => {
   return (
-    <Layout.Header>
-      <img
-        alt="bank of america logo"
-        src="logo.png"
-        style={{ height: '100%' }}
-      />
+    <Layout.Header className={'Header-root'}>
+      <div className={'Header-logo'} />
+      <div className={'Header-spacer'}></div>
+      <Icon type="user" className={'Header-icon'} />
     </Layout.Header>
   )
 }
