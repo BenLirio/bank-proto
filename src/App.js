@@ -1,12 +1,12 @@
 import { Layout } from 'antd'
 import React from 'react'
-import classes from './App.module.css'
+import './App.less'
 import Header from './components/Header/Header'
 import WorkspaceView from './views/WorkspaceView/WorkspaceView'
 
 const App = () => {
   return (
-    <Layout className={classes.Root}>
+    <Layout className={'App-root'}>
       <Header />
       <WorkspaceView />
     </Layout>

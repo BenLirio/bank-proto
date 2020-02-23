@@ -1,10 +1,10 @@
 import React from 'react'
-import classes from './BusinessGroups.module.css'
+import classes from './BusinessGroups.less'
 
 const BusinessGroups = () => {
   return (
-    <div className={classes.Root}>
-      <div className={classes.Container}></div>
+    <div className={'BusinessGroups-root'}>
+      <div className={'BusinessGroups-container'}></div>
     </div>
   )
 }

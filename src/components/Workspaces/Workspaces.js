@@ -1,11 +1,11 @@
 import React from 'react'
-import classes from './Workspaces.module.css'
+import classes from './Workspaces.less'
 
 const Workspaces = () => {
   return (
-    <div className={classes.Root}>
-      <div className={classes.Filters}></div>
-      <div className={classes.Table}></div>
+    <div className={'Workspaces-root'}>
+      <div className={'Workspaces-filters'}></div>
+      <div className={'Workspaces-table'}></div>
     </div>
   )
 }

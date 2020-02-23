@@ -1,16 +1,15 @@
 import React from 'react'
-import { Layout } from 'antd'
-import classes from './WorkspaceView.module.css'
+import './WorkspaceView.less'
 import BusinessGroups from '../../components/BusinessGroups/BusinessGroups'
 import Workspaces from '../../components/Workspaces/Workspaces'
 
 const WorkspaceView = () => {
   return (
-    <div className={classes.Root}>
-      <div className={classes.Sider}>
+    <div className={'WorkspaceView-root'}>
+      <div className={'WorkspaceView-businessGroups'}>
         <BusinessGroups />
       </div>
-      <div className={classes.Content}>
+      <div className={'WorkspaceView-workspaces'}>
         <Workspaces />
       </div>
     </div>
