@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './BusinessGroups.less'
+import './BusinessGroups.less'
 
 const BusinessGroups = () => {
   return (
