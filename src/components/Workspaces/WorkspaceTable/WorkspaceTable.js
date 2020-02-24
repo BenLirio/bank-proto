@@ -7,13 +7,16 @@ const { Column } = Table
 
 const data = []
 for (let i = 0; i < 100; i++) {
-  data.push({
+  let businessGroup = i % 5
+  const workspace = {
     key: i,
-    id: 12345678 + i,
-    name: 'Workspace ' + (i + 1),
+    id: 123456789 + i,
+    name: 'Workspace ' + businessGroup + '-' + i,
+    businessGroup,
     lastUpdated: '20/20/20',
     policy: '90 days'
-  })
+  }
+  data.push(workspace)
 }
 
 const WorkspaceTable = () => {
