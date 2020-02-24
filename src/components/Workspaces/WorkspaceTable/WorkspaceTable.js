@@ -7,6 +7,7 @@ const data = []
 for (let i = 0; i < 100; i++) {
   data.push({
     id: i,
+    key: i,
     name: 'Workspace ' + (i + 1)
   })
 }

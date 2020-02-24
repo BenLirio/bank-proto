@@ -11,9 +11,9 @@ for (let i = 0; i < 100; i++) {
 }
 
 const BusinessGroupsList = () => {
-  const rowRender = ({ index, ...rest }) => {
+  const rowRender = ({ index, key, style }) => {
     return (
-      <div {...rest}>
+      <div key={key} style={style}>
         <BusinessGroupItem name={data[index]} />
       </div>
     )

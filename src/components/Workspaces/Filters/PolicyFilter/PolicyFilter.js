@@ -1,5 +1,5 @@
+import { Select, Typography } from 'antd'
 import React from 'react'
-import { DatePicker, Typography, Select } from 'antd'
 
 const { Text } = Typography
 
