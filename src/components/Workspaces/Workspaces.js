@@ -1,6 +1,7 @@
 import React from 'react'
 import './Workspaces.less'
-import Filters from '../Filters/Filters'
+import Filters from './Filters/Filters'
+import WorkspaceTable from './WorkspaceTable/WorkspaceTable'
 
 const Workspaces = () => {
   return (
@@ -8,7 +9,9 @@ const Workspaces = () => {
       <div className={'Workspaces-filters'}>
         <Filters />
       </div>
-      <div className={'Workspaces-table'}></div>
+      <div className={'Workspaces-table'}>
+        <WorkspaceTable />
+      </div>
     </div>
   )
 }
