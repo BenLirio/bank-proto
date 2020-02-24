@@ -7,6 +7,7 @@ const { Text } = Typography
 const TableHeader = () => {
   return (
     <div className="TableHeader-root">
+      <div className="TableHeader-leftPadding"></div>
       <div className="TableHeader-col TableHeader-col-name">
         <Checkbox>
           <Text strong>Name</Text>

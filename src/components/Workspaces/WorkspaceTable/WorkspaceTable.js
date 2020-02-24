@@ -16,7 +16,11 @@ for (let i = 0; i < 100; i++) {
     name: 'Workspace ' + businessGroup + '-' + i,
     businessGroup,
     lastUpdated: '20/20/20',
-    policy: '90 days'
+    dateCreated: '20/20/20',
+    policy: '90 days',
+    type: 'Pro',
+    primaryContact: 'name@bank.com',
+    exchange: 'Exchange Name'
   }
   data.push(workspace)
 }
