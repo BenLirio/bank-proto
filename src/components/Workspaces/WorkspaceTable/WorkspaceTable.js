@@ -1,7 +1,9 @@
-import { Checkbox, Table } from 'antd'
+import { Checkbox, Table, Icon, Button } from 'antd'
 import React from 'react'
 import PolicyRender from './PolicyRender/PolicyRender'
 import TableLayout from './TableLayout'
+import './WorkspaceTable.less'
+import ExpandedRow from './ExpandedRow/ExpandedRow'
 
 const { Column } = Table
 
@@ -22,7 +24,14 @@ for (let i = 0; i < 100; i++) {
 const WorkspaceTable = () => {
   return (
     <TableLayout>
-      <Table dataSource={data} pagination={false} showHeader={false}>
+      <Table
+        dataSource={data}
+        pagination={false}
+        showHeader={false}
+        size="small"
+        expandedRowRender={ExpandedRow}
+        className="WorkspaceTable-table"
+      >
         <Column
           width={250}
           dataIndex={'name'}
