@@ -20,13 +20,13 @@ const WorkspaceTable = () => {
     <TableLayout>
       <Table dataSource={data} pagination={false} showHeader={false}>
         <Column
-          width={200}
+          width={250}
           dataIndex={'name'}
           key={'name'}
           render={name => <Checkbox>{name}</Checkbox>}
         />
-        <Column width={200} dataIndex={'id'} key={'id'} />
-        <Column width={200} dataIndex={'lastUpdated'} key={'lastUpdated'} />
+        <Column width={250} dataIndex={'id'} key={'id'} />
+        <Column width={250} dataIndex={'lastUpdated'} key={'lastUpdated'} />
         <Column dataIndex={'policy'} key={'policy'} />
       </Table>
     </TableLayout>
