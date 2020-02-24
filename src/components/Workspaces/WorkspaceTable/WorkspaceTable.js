@@ -1,5 +1,6 @@
-import { Table, Checkbox } from 'antd'
+import { Checkbox, Table } from 'antd'
 import React from 'react'
+import PolicyRender from './PolicyRender/PolicyRender'
 import TableLayout from './TableLayout'
 
 const { Column } = Table
@@ -27,7 +28,7 @@ const WorkspaceTable = () => {
         />
         <Column width={250} dataIndex={'id'} key={'id'} />
         <Column width={250} dataIndex={'lastUpdated'} key={'lastUpdated'} />
-        <Column dataIndex={'policy'} key={'policy'} />
+        <Column dataIndex={'policy'} key={'policy'} render={PolicyRender} />
       </Table>
     </TableLayout>
   )
