@@ -19,9 +19,9 @@ const WorkspaceTable = () => {
   return (
     <TableLayout>
       <Table dataSource={data} pagination={false} showHeader={false}>
-        <Column dataIndex={'name'} key={'name'} />
-        <Column dataIndex={'id'} key={'id'} />
-        <Column dataIndex={'lastUpdated'} key={'lastUpdated'} />
+        <Column width={200} dataIndex={'name'} key={'name'} />
+        <Column width={200} dataIndex={'id'} key={'id'} />
+        <Column width={200} dataIndex={'lastUpdated'} key={'lastUpdated'} />
         <Column dataIndex={'policy'} key={'policy'} />
       </Table>
     </TableLayout>
