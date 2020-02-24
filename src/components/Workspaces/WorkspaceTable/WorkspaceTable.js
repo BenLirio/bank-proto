@@ -1,4 +1,4 @@
-import { Table } from 'antd'
+import { Table, Checkbox } from 'antd'
 import React from 'react'
 import TableLayout from './TableLayout'
 
@@ -19,7 +19,12 @@ const WorkspaceTable = () => {
   return (
     <TableLayout>
       <Table dataSource={data} pagination={false} showHeader={false}>
-        <Column width={200} dataIndex={'name'} key={'name'} />
+        <Column
+          width={200}
+          dataIndex={'name'}
+          key={'name'}
+          render={name => <Checkbox>{name}</Checkbox>}
+        />
         <Column width={200} dataIndex={'id'} key={'id'} />
         <Column width={200} dataIndex={'lastUpdated'} key={'lastUpdated'} />
         <Column dataIndex={'policy'} key={'policy'} />

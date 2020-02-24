@@ -1,6 +1,6 @@
 import React from 'react'
 import './TableHeader.less'
-import { Typography } from 'antd'
+import { Typography, Checkbox } from 'antd'
 
 const { Text } = Typography
 
@@ -8,7 +8,9 @@ const TableHeader = () => {
   return (
     <div className="TableHeader-root">
       <div className="TableHeader-col TableHeader-col-name">
-        <Text strong>Name</Text>
+        <Checkbox>
+          <Text strong>Name</Text>
+        </Checkbox>
       </div>
       <div className="TableHeader-col TableHeader-col-name">
         <Text strong>ID</Text>
