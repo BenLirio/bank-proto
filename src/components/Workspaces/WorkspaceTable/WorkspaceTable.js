@@ -1,6 +1,5 @@
-import React from 'react'
 import { Table } from 'antd'
-import { AutoSizer } from 'react-virtualized'
+import React from 'react'
 import TableLayout from './TableLayout'
 
 const { Column } = Table
@@ -8,9 +7,11 @@ const { Column } = Table
 const data = []
 for (let i = 0; i < 100; i++) {
   data.push({
-    id: i,
     key: i,
-    name: 'Workspace ' + (i + 1)
+    id: 12345678 + i,
+    name: 'Workspace ' + (i + 1),
+    lastUpdated: '20/20/20',
+    policy: '90 days'
   })
 }
 
@@ -18,7 +19,10 @@ const WorkspaceTable = () => {
   return (
     <TableLayout>
       <Table dataSource={data} pagination={false} showHeader={false}>
-        <Column title="Name" dataIndex={'name'} key={'id'} />
+        <Column dataIndex={'name'} key={'name'} />
+        <Column dataIndex={'id'} key={'id'} />
+        <Column dataIndex={'lastUpdated'} key={'lastUpdated'} />
+        <Column dataIndex={'policy'} key={'policy'} />
       </Table>
     </TableLayout>
   )
