@@ -1,35 +1,19 @@
-import { Checkbox, Table, Icon, Button } from 'antd'
-import React from 'react'
+import { Checkbox, Table } from 'antd'
+import React, { useContext } from 'react'
+import ExpandedRow from './ExpandedRow/ExpandedRow'
 import PolicyRender from './PolicyRender/PolicyRender'
+import CurrentWorkspacesContext from './TableFooter/Pagination/current-workspaces-context'
 import TableLayout from './TableLayout'
 import './WorkspaceTable.less'
-import ExpandedRow from './ExpandedRow/ExpandedRow'
 
 const { Column } = Table
 
-const data = []
-for (let i = 0; i < 100; i++) {
-  let businessGroup = i % 5
-  const workspace = {
-    key: i,
-    id: 123456789 + i,
-    name: 'Workspace ' + businessGroup + '-' + i,
-    businessGroup,
-    lastUpdated: '20/20/20',
-    dateCreated: '20/20/20',
-    policy: '90 days',
-    type: 'Pro',
-    primaryContact: 'name@bank.com',
-    exchange: 'Exchange Name'
-  }
-  data.push(workspace)
-}
-
 const WorkspaceTable = () => {
+  const workspaces = useContext(CurrentWorkspacesContext)
   return (
     <TableLayout>
       <Table
-        dataSource={data}
+        dataSource={workspaces}
         pagination={false}
         showHeader={false}
         size="small"

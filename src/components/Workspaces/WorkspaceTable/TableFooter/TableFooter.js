@@ -1,7 +1,8 @@
 import React from 'react'
 import './TableFooter.less'
-import { Pagination, Button } from 'antd'
+import { Button } from 'antd'
 import { Typography } from 'antd'
+import Pagination from './Pagination/Pagination'
 
 const { Text } = Typography
 

@@ -2,6 +2,7 @@ import React from 'react'
 import './Workspaces.less'
 import Filters from './Filters/Filters'
 import WorkspaceTable from './WorkspaceTable/WorkspaceTable'
+import WorkspaceWrapper from './WorkspaceTable/WorkspaceWrapper'
 
 const Workspaces = () => {
   return (
@@ -10,7 +11,9 @@ const Workspaces = () => {
         <Filters />
       </div>
       <div className={'Workspaces-table'}>
-        <WorkspaceTable />
+        <WorkspaceWrapper>
+          <WorkspaceTable />
+        </WorkspaceWrapper>
       </div>
     </div>
   )
