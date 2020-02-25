@@ -3,8 +3,6 @@ import './Workspaces.less'
 import Filters from './Filters/Filters'
 import WorkspaceTable from './WorkspaceTable/WorkspaceTable'
 import WorkspaceWrapper from './WorkspaceTable/WorkspaceWrapper'
-import { CheckedContextProvider } from './WorkspaceTable/Checkbox/checked-context'
-import { PolicyContextProvider } from './WorkspaceTable/PolicyRender/policy-context'
 
 const Workspaces = () => {
   return (
@@ -14,11 +12,7 @@ const Workspaces = () => {
       </div>
       <div className={'Workspaces-table'}>
         <WorkspaceWrapper>
-          <CheckedContextProvider>
-            <PolicyContextProvider>
-              <WorkspaceTable />
-            </PolicyContextProvider>
-          </CheckedContextProvider>
+          <WorkspaceTable />
         </WorkspaceWrapper>
       </div>
     </div>
