@@ -16,6 +16,13 @@ const policyReducer = (state, action) => {
       state[id] = policy
       return { ...state }
     }
+    case 'changeMultiple': {
+      const { ids, policy } = payload
+      for (let id of ids) {
+        state[id] = policy
+      }
+      return { ...state }
+    }
     default: {
       throw new Error('Policy Context - Invalid type')
     }
