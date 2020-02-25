@@ -1,5 +1,4 @@
-import React, { createContext, useReducer, useContext, useEffect } from 'react'
-import WorkspaceContext from '../workspace-context'
+import React, { createContext, useContext, useEffect, useReducer } from 'react'
 import PaginationContext from '../TableFooter/Pagination/pagination-context'
 
 const CheckedContext = createContext()
