@@ -28,9 +28,11 @@ export const PaginationContextProvider = ({ children }) => {
   })
   const [workspaces] = useContext(WorkspaceContext)
   useEffect(() => {
-    dispatchPagination({ type: 'length', payload: workspaces.length })
+    if (pagination.total !== workspaces.length) {
+      dispatchPagination({ type: 'length', payload: workspaces.length })
+    }
   }, [workspaces])
-  console.log()
+
   return (
     <PaginationContext.Provider value={[pagination, dispatchPagination]}>
       {children}

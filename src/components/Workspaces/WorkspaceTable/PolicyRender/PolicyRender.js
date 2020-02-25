@@ -6,7 +6,7 @@ const PolicyRender = ({ policy, onChange }) => {
   return (
     <div className="PolicyRender-root">
       <Select
-        onChange={policy => onChange(policy)}
+        onChange={val => onChange(val)}
         value={policy}
         className="PolicyRender-select"
       >
