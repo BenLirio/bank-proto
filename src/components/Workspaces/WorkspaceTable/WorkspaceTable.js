@@ -23,7 +23,7 @@ const WorkspaceTable = () => {
         policy
       }))
     })
-  }, [workspaces])
+  }, [workspaces, dispatchPolicies])
   return (
     <TableLayout>
       <Table
