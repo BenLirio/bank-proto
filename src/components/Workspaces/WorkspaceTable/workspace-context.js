@@ -10,7 +10,7 @@ import moment from 'moment'
 
 const data = []
 const map = new Map()
-for (let i = 0; i < 10000; i++) {
+for (let i = 0; i < 100; i++) {
   let businessGroup = i % 5
   const id = 123456789 + i
   const workspace = {
@@ -19,7 +19,7 @@ for (let i = 0; i < 10000; i++) {
     checked: false,
     key: i,
     id,
-    name: 'Workspace ' + businessGroup + '-' + i,
+    name: 'Workspace ' + i + '(bg: ' + (businessGroup + 1) + ')',
     businessGroup,
     lastUpdated: moment().subtract(i, 'days'),
     dateCreated: moment().subtract(i * 2, 'days'),
