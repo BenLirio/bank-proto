@@ -16,7 +16,7 @@ const PolicyFilter = () => {
   return (
     <>
       <Text strong>Test</Text>
-      <Select onChange={val => setFilter(val)}>
+      <Select defaultValue="all" onChange={val => setFilter(val)}>
         <Option value="all">all</Option>
         <Option value="90 days">90 days</Option>
         <Option value="180 days">180 days</Option>

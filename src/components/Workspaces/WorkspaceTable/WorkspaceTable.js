@@ -42,7 +42,12 @@ const WorkspaceTable = () => {
           )}
         />
         <Column width={250} dataIndex={'id'} key={'id'} />
-        <Column width={250} dataIndex={'lastUpdated'} key={'lastUpdated'} />
+        <Column
+          width={250}
+          dataIndex={'lastUpdated'}
+          key={'lastUpdated'}
+          render={date => date.format('MM/DD/YYYY')}
+        />
         <Column
           dataIndex={'policy'}
           key={'policy'}

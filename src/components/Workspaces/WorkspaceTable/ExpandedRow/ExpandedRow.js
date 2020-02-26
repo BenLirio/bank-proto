@@ -14,7 +14,7 @@ const ExpandedRow = ({
   return (
     <div className="ExpandedRow-root">
       <div className="ExpandedRow-col">
-        <Text>Workspace added: {dateCreated}</Text>
+        <Text>Workspace added: {dateCreated.format('MM/DD/YYYY')}</Text>
         <Text>Type: {type}</Text>
         <Text>Primary Contact: {primaryContact}</Text>
       </div>

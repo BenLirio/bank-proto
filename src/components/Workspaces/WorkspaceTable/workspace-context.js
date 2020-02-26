@@ -6,6 +6,7 @@ import React, {
   useEffect
 } from 'react'
 import FilterContext from '../Filters/filters-context'
+import moment from 'moment'
 
 const data = []
 const map = new Map()
@@ -13,15 +14,15 @@ for (let i = 0; i < 101; i++) {
   let businessGroup = i % 5
   const id = 123456789 + i
   const workspace = {
-    filteredBy: new Set(['businessGroup', 'policy']),
+    filteredBy: new Set(['businessGroup']),
     visible: false,
     checked: false,
     key: i,
     id,
     name: 'Workspace ' + businessGroup + '-' + i,
     businessGroup,
-    lastUpdated: '20/20/20',
-    dateCreated: '20/20/20',
+    lastUpdated: moment().subtract(i, 'days'),
+    dateCreated: moment().subtract(i * 2, 'days'),
     policy: '90 days',
     type: 'Pro',
     primaryContact: 'name@bank.com',
