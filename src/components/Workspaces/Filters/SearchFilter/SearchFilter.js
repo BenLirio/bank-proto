@@ -5,19 +5,20 @@ import WorkspaceContext from '../../WorkspaceTable/workspace-context'
 const { Text } = Typography
 
 const SearchFilter = () => {
-  const dispatchWorkspaces = useContext(WorkspaceContext)[1]
+  const [workspaces, dispatchWorkspaces] = useContext(WorkspaceContext)
   const setFilter = val => {
     const show = ({ name }) => {
       return name.includes(val)
     }
-    setTimeout(() => {
-      dispatchWorkspaces({ type: 'filter', payload: { show, name: 'name' } })
-    }, 0)
+    dispatchWorkspaces({ type: 'filter', payload: { show, name: 'name' } })
   }
   return (
     <>
       <Text strong>SearchFilter</Text>
-      <AutoComplete onChange={val => setFilter(val)} />
+      <AutoComplete
+        dataSource={workspaces.map(({ name }) => name)}
+        onChange={val => setFilter(val)}
+      />
     </>
   )
 }

@@ -10,7 +10,7 @@ import moment from 'moment'
 
 const data = []
 const map = new Map()
-for (let i = 0; i < 101; i++) {
+for (let i = 0; i < 10000; i++) {
   let businessGroup = i % 5
   const id = 123456789 + i
   const workspace = {
