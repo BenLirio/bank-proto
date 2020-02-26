@@ -1,15 +1,20 @@
-import { Checkbox, Typography } from 'antd'
+import { Checkbox, Typography, Button, Icon } from 'antd'
 import React, { useContext } from 'react'
 import WorkspaceContext from '../workspace-context'
 import './TableHeader.less'
+import SortContext from './sort-context'
 
 const { Text } = Typography
 
 const TableHeader = () => {
+  const [sort, dispatchSort] = useContext(SortContext)
   const [workspaces, dispatchWorkspaces] = useContext(WorkspaceContext)
   let numChecked = 0
   let allChecked = false
   let someChecked = false
+  const setSort = sort => {
+    dispatchSort({ type: 'activate', payload: sort })
+  }
   if (workspaces.length) {
     numChecked = workspaces.reduce(
       (checked, workspace) => checked + (workspace.checked ? 1 : 0),
@@ -37,14 +42,63 @@ const TableHeader = () => {
           <Text strong>Name</Text>
         </Checkbox>
       </div>
-      <div className="TableHeader-col TableHeader-col-name">
-        <Text strong>ID</Text>
+
+      <div
+        onClick={() => setSort('id')}
+        className={`TableHeader-col-wrapper ${
+          sort.name === 'id' ? 'TableHeader-active' : ''
+        }`}
+      >
+        <div className="TableHeader-col TableHeader-col-id">
+          <Text strong>
+            ID{' '}
+            {sort.name === 'id' ? (
+              sort.direction === 'ascend' ? (
+                <Icon type="caret-up" />
+              ) : (
+                <Icon type="caret-down" />
+              )
+            ) : null}
+          </Text>
+        </div>
       </div>
-      <div className="TableHeader-col TableHeader-col-name">
-        <Text strong>Last Updated</Text>
+      <div
+        onClick={() => setSort('date')}
+        className={`TableHeader-col-wrapper ${
+          sort.name === 'date' ? 'TableHeader-active' : ''
+        }`}
+      >
+        <div className="TableHeader-col TableHeader-col-last-updated">
+          <Text strong>
+            Last Updated{' '}
+            {sort.name === 'date' ? (
+              sort.direction === 'ascend' ? (
+                <Icon type="caret-up" />
+              ) : (
+                <Icon type="caret-down" />
+              )
+            ) : null}
+          </Text>
+        </div>
       </div>
-      <div className="TableHeader-col TableHeader-col-name">
-        <Text strong>Policy</Text>
+      <div
+        onClick={() => setSort('policy')}
+        className={`TableHeader-col-wrapper ${
+          sort.name === 'policy' ? 'TableHeader-active' : ''
+        }`}
+      >
+        <div className="TableHeader-col TableHeader-col-policy">
+          <Text strong>
+            Policy{' '}
+            {sort.name === 'policy' ? (
+              sort.direction === 'ascend' ? (
+                <Icon type="caret-up" />
+              ) : (
+                <Icon type="caret-down" />
+              )
+            ) : null}
+          </Text>
+        </div>
       </div>
     </div>
   )

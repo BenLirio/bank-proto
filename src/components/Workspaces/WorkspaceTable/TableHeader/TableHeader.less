@@ -20,3 +20,17 @@
 .TableHeader-leftPadding {
   width: 50px;
 }
+
+.TableHeader-col-wrapper {
+  display: flex;
+  transition: all;
+  transition-duration: @animation-duration-base;
+  transition-timing-function: @ease-in;
+  &:hover {
+    background: @table-header-filter-active-bg;
+    cursor: pointer;
+  }
+}
+.TableHeader-active {
+  background: @table-header-filter-active-bg;
+}
