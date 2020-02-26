@@ -1,4 +1,5 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useReducer, useContext } from 'react'
+import FilterContext from '../Filters/filters-context'
 
 const data = []
 const map = new Map()
@@ -66,8 +67,12 @@ export const WorkspaceContextProvider = ({ children }) => {
     data,
     map
   ])
+  const [filters] = useContext(FilterContext)
+  const filteredWorkspaces = filters.reduce((filtered, filter) => {
+    return filtered.filter(filter)
+  }, workspaces[0])
   return (
-    <WorkspaceContext.Provider value={[workspaces[0], dispatchWorkspaces]}>
+    <WorkspaceContext.Provider value={[filteredWorkspaces, dispatchWorkspaces]}>
       {children}
     </WorkspaceContext.Provider>
   )
