@@ -35,11 +35,14 @@ const BusinessGroupsList = () => {
   const dispatchFilters = useContext(FiltersContext)[1]
   const dispatchWorkspaces = useContext(WorkspaceContext)[1]
   useEffect(() => {
-    const show = workspace => {
-      return { ...workspace, visible: checked.has(workspace.businessGroup) }
+    const show = ({ businessGroup }) => {
+      return checked.has(businessGroup)
     }
 
-    dispatchWorkspaces({ type: 'filter', payload: { show } })
+    dispatchWorkspaces({
+      type: 'filter',
+      payload: { name: 'businessGroup', show }
+    })
   }, [checked])
   const rowRender = ({ index, key, style }) => {
     return (

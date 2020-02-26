@@ -13,7 +13,7 @@ for (let i = 0; i < 101; i++) {
   let businessGroup = i % 5
   const id = 123456789 + i
   const workspace = {
-    filteredBy: new Set(),
+    filteredBy: new Set(['businessGroup', 'policy']),
     visible: false,
     checked: false,
     key: i,
@@ -69,7 +69,15 @@ const workspaceReducer = (state, action) => {
     }
     case 'filter': {
       const { show, name } = payload
-      const filter = workspace => {}
+      const filter = workspace => {
+        if (show(workspace)) {
+          workspace.filteredBy.delete(name)
+        } else {
+          workspace.filteredBy.add(name)
+        }
+        workspace.visible = !workspace.filteredBy.size
+        return workspace
+      }
       return [workspaces.map(filter), workspacesMap]
     }
     default: {

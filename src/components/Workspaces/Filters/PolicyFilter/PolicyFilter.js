@@ -8,12 +8,10 @@ const { Option } = Select
 const PolicyFilter = () => {
   const dispatchWorkspaces = useContext(WorkspaceContext)[1]
   const setFilter = val => {
-    const show = workspace => {
-      const { policy } = workspace
-      const visible = val === 'all' || policy === val
-      return { ...workspace, visible }
+    const show = ({ policy }) => {
+      return val === 'all' || policy === val
     }
-    dispatchWorkspaces({ type: 'filter', payload: { show } })
+    dispatchWorkspaces({ type: 'filter', payload: { show, name: 'policy' } })
   }
   return (
     <>
