@@ -1,4 +1,10 @@
-import React, { createContext, useReducer, useContext } from 'react'
+import React, {
+  createContext,
+  useReducer,
+  useContext,
+  useState,
+  useEffect
+} from 'react'
 import FilterContext from '../Filters/filters-context'
 
 const data = []
@@ -67,10 +73,18 @@ export const WorkspaceContextProvider = ({ children }) => {
     data,
     map
   ])
+  const [filteredWorkspaces, setFilteredWorkspaces] = useState(workspaces[0])
   const [filters] = useContext(FilterContext)
-  const filteredWorkspaces = filters.reduce((filtered, filter) => {
-    return filtered.filter(filter)
-  }, workspaces[0])
+  useEffect(() => {
+    setFilteredWorkspaces(
+      filters.reduce((filtered, filter) => {
+        return filtered.filter(filter)
+      }, workspaces[0])
+    )
+  }, [filters, workspaces])
+  useEffect(() => {
+    dispatchWorkspaces({ type: 'clearChecked' })
+  }, [filters])
   return (
     <WorkspaceContext.Provider value={[filteredWorkspaces, dispatchWorkspaces]}>
       {children}

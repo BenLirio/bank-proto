@@ -7,12 +7,17 @@ const { Text } = Typography
 
 const TableHeader = () => {
   const [workspaces, dispatchWorkspaces] = useContext(WorkspaceContext)
-  const numChecked = workspaces.reduce(
-    (checked, workspace) => checked + (workspace.checked ? 1 : 0),
-    0
-  )
-  const allChecked = numChecked === workspaces.length
-  const someChecked = !allChecked && !!numChecked
+  let numChecked = 0
+  let allChecked = false
+  let someChecked = false
+  if (workspaces.length) {
+    numChecked = workspaces.reduce(
+      (checked, workspace) => checked + (workspace.checked ? 1 : 0),
+      0
+    )
+    allChecked = numChecked === workspaces.length
+    someChecked = !allChecked && !!numChecked
+  }
   const onChecked = () => {
     if (allChecked) {
       dispatchWorkspaces({ type: 'clearChecked' })
