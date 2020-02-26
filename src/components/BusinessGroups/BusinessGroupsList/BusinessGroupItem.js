@@ -1,10 +1,12 @@
 import React from 'react'
 import { Checkbox } from 'antd'
 
-const BusinessGroupItem = ({ name }) => {
+const BusinessGroupItem = ({ name, checked, onChange }) => {
   return (
     <div>
-      <Checkbox>{name}</Checkbox>
+      <Checkbox checked={checked} onChange={e => onChange(e.target.checked)}>
+        {name}
+      </Checkbox>
     </div>
   )
 }
