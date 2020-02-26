@@ -13,6 +13,7 @@ for (let i = 0; i < 101; i++) {
   let businessGroup = i % 5
   const id = 123456789 + i
   const workspace = {
+    visible: false,
     checked: false,
     key: i,
     id,
@@ -46,7 +47,10 @@ const workspaceReducer = (state, action) => {
       return [workspaces.map(unCheck), workspacesMap]
     }
     case 'checkAll': {
-      const checkWorkspace = workspace => ({ ...workspace, checked: true })
+      const checkWorkspace = workspace => ({
+        ...workspace,
+        checked: workspace.visible
+      })
       return [workspaces.map(checkWorkspace), workspacesMap]
     }
     case 'setPolicy': {
@@ -62,6 +66,15 @@ const workspaceReducer = (state, action) => {
       })
       return [workspaces.map(setPolicies), workspacesMap]
     }
+    case 'filter': {
+      const { show } = payload
+      const hide = workspace => ({
+        ...workspace,
+        visible: false,
+        checked: false
+      })
+      return [workspaces.map(hide).map(show), workspacesMap]
+    }
     default: {
       throw new Error('WorkspaceContext - Invalid type')
     }
@@ -73,20 +86,17 @@ export const WorkspaceContextProvider = ({ children }) => {
     data,
     map
   ])
-  const [filteredWorkspaces, setFilteredWorkspaces] = useState(workspaces[0])
   const [filters] = useContext(FilterContext)
-  useEffect(() => {
-    setFilteredWorkspaces(
-      filters.reduce((filtered, filter) => {
-        return filtered.filter(filter)
-      }, workspaces[0])
-    )
-  }, [filters, workspaces])
-  useEffect(() => {
-    dispatchWorkspaces({ type: 'clearChecked' })
-  }, [filters])
+  filters.reduce((filtered, filter) => {
+    return filtered.filter(filter)
+  }, workspaces[0])
   return (
-    <WorkspaceContext.Provider value={[filteredWorkspaces, dispatchWorkspaces]}>
+    <WorkspaceContext.Provider
+      value={[
+        workspaces[0].filter(({ visible }) => visible),
+        dispatchWorkspaces
+      ]}
+    >
       {children}
     </WorkspaceContext.Provider>
   )

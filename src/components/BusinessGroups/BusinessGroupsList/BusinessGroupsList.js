@@ -2,6 +2,7 @@ import React, { useReducer, useEffect, useContext } from 'react'
 import { AutoSizer, List } from 'react-virtualized'
 import BusinessGroupItem from './BusinessGroupItem'
 import FiltersContext from '../../Workspaces/Filters/filters-context'
+import WorkspaceContext from '../../Workspaces/WorkspaceTable/workspace-context'
 
 const ROW_HEIGHT = 24
 
@@ -32,14 +33,13 @@ const checkedReducer = (state, action) => {
 const BusinessGroupsList = () => {
   const [checked, dispatchChecked] = useReducer(checkedReducer, new Set())
   const dispatchFilters = useContext(FiltersContext)[1]
+  const dispatchWorkspaces = useContext(WorkspaceContext)[1]
   useEffect(() => {
-    const callback = ({ businessGroup }) => {
-      return checked.has(businessGroup)
+    const show = workspace => {
+      return { ...workspace, visible: checked.has(workspace.businessGroup) }
     }
-    dispatchFilters({
-      type: 'set',
-      payload: { name: 'businessGroups', callback }
-    })
+
+    dispatchWorkspaces({ type: 'filter', payload: { show } })
   }, [checked])
   const rowRender = ({ index, key, style }) => {
     return (
