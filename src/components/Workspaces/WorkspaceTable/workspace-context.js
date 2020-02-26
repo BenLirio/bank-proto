@@ -13,6 +13,7 @@ for (let i = 0; i < 101; i++) {
   let businessGroup = i % 5
   const id = 123456789 + i
   const workspace = {
+    filteredBy: new Set(),
     visible: false,
     checked: false,
     key: i,
@@ -67,19 +68,18 @@ const workspaceReducer = (state, action) => {
       return [workspaces.map(setPolicies), workspacesMap]
     }
     case 'filter': {
-      const { show } = payload
-      const hide = workspace => ({
-        ...workspace,
-        visible: false,
-        checked: false
-      })
-      return [workspaces.map(hide).map(show), workspacesMap]
+      const { show, name } = payload
+      const filter = workspace => {}
+      return [workspaces.map(filter), workspacesMap]
     }
     default: {
       throw new Error('WorkspaceContext - Invalid type')
     }
   }
 }
+// filtered by another one means visible = false && hasFilter = false
+// filtered by this one means visible = false && hasFilter = true
+// created sets for each filter
 
 export const WorkspaceContextProvider = ({ children }) => {
   const [workspaces, dispatchWorkspaces] = useReducer(workspaceReducer, [
