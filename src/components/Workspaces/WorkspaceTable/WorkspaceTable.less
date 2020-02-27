@@ -5,3 +5,25 @@
 .WorkspaceTable-table .ant-table-small > .ant-table-content > .ant-table-body {
   margin: 0;
 }
+.WorkspaceTable-row {
+  display: flex;
+}
+.WorkspaceTable-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.ant-table-row-expand-icon-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ant-table-expanded-row.ant-table-expanded-row-level-1 {
+  display: flex;
+
+  & :last-child {
+    flex: 1;
+  }
+}

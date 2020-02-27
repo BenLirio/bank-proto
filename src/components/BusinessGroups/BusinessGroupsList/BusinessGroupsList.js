@@ -35,6 +35,7 @@ const BusinessGroupsList = () => {
   const [checked, dispatchChecked] = useReducer(checkedReducer, new Set())
   const dispatchFilters = useContext(FiltersContext)[1]
   const dispatchWorkspaces = useContext(WorkspaceContext)[1]
+
   useEffect(() => {
     const show = ({ businessGroup }) => {
       return checked.has(businessGroup)

@@ -20,10 +20,23 @@ const WorkspaceTable = () => {
   const changeWorkspacePolicy = ({ id, val }) => {
     dispatchWorkspaces({ type: 'setPolicy', payload: { id, val } })
   }
+  const CustomRow = props => {
+    return <tr {...props} className="WorkspaceTable-row"></tr>
+  }
+  const CustomCell = props => {
+    return <td {...props} className="WorkspaceTable-cell"></td>
+  }
+  const components = {
+    body: {
+      row: CustomRow,
+      cell: CustomCell
+    }
+  }
 
   return (
     <TableLayout>
       <Table
+        components={components}
         dataSource={workspaces}
         pagination={false}
         showHeader={false}
@@ -32,7 +45,6 @@ const WorkspaceTable = () => {
         className="WorkspaceTable-table"
       >
         <Column
-          width={250}
           dataIndex={'name'}
           key={'name'}
           render={(name, { checked, id }) => (
@@ -44,14 +56,12 @@ const WorkspaceTable = () => {
           )}
         />
         <Column
-          width={250}
           dataIndex={'id'}
           key={'id'}
           sorter={(a, b) => a.id - b.id}
           sortOrder={sort.name === 'id' && sort.direction}
         />
         <Column
-          width={250}
           dataIndex={'lastUpdated'}
           key={'lastUpdated'}
           render={date => date.format('MM/DD/YYYY')}
