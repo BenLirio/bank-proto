@@ -14,13 +14,24 @@ const ExpandedRow = ({
   return (
     <div className="ExpandedRow-root">
       <div className="ExpandedRow-col">
-        <Text>Workspace added: {dateCreated.format('MM/DD/YYYY')}</Text>
-        <Text>Type: {type}</Text>
-        <Text>Primary Contact: {primaryContact}</Text>
+        <Text>
+          Workspace added:{' '}
+          <Text strong>{dateCreated.format('MM/DD/YYYY')}</Text>
+        </Text>
+        <Text>
+          Type: <Text strong>{type}</Text>
+        </Text>
+        <Text>
+          Primary Contact: <Text strong>{primaryContact}</Text>
+        </Text>
       </div>
       <div className="ExpandedRow-col">
-        <Text>Business Group: {businessGroup}</Text>
-        <Text>Exchange: {exchange}</Text>
+        <Text>
+          Business Group: <Text strong>{businessGroup}</Text>
+        </Text>
+        <Text>
+          Exchange: <Text strong>{exchange}</Text>
+        </Text>
       </div>
     </div>
   )

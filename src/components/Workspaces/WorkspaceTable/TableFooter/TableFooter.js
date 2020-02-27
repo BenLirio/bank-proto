@@ -16,16 +16,18 @@ const TableFooter = () => {
     const numChecked = workspaces.reduce((acc, { checked }) => {
       return acc + (checked ? 1 : 0)
     }, 0)
-    confirm({
-      title: 'Confirm',
-      content: `Change ${numChecked} workspaces to ${policy}`,
-      onCancel() {},
-      onOk() {
-        setPolicies(policy)
-      }
-    })
+    if (numChecked) {
+      confirm({
+        title: `Confirm`,
+        content: `Set ${numChecked} selected workspaces to have a ${policy} policy`,
+        onCancel() {},
+        onOk() {
+          setPolicies(policy)
+        }
+      })
+    }
   }
-  const buttons = ['90 days', '180 days', '365 days']
+  const buttons = ['90 Days', '180 Days', '365 Days']
   return (
     <div className="TableFooter-root">
       <Text strong className="TableFooter-updateText">
@@ -36,7 +38,7 @@ const TableFooter = () => {
           <Button
             key={button}
             className="TableFooter-button"
-            onClick={() => showConfirm(button)}
+            onClick={() => showConfirm(button.toLowerCase())}
           >
             {button}
           </Button>

@@ -14,8 +14,9 @@ const SearchFilter = () => {
   }
   return (
     <div className={'Filters-filter-root'}>
-      <Text strong>Search Filter</Text>
+      <Text strong>Search</Text>
       <AutoComplete
+        placeholder="workspace name"
         dataSource={workspaces.map(({ name }) => name)}
         onChange={val => setFilter(val)}
       />

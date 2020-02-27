@@ -17,10 +17,10 @@ const PolicyFilter = () => {
     <div className={'Filters-filter-root'}>
       <Text strong>Policy</Text>
       <Select defaultValue="all" onChange={val => setFilter(val)}>
-        <Option value="all">all</Option>
-        <Option value="90 days">90 days</Option>
-        <Option value="180 days">180 days</Option>
-        <Option value="365 days">365 days</Option>
+        <Option value="all">All</Option>
+        <Option value="90 days">90 Days</Option>
+        <Option value="180 days">180 Days</Option>
+        <Option value="365 days">365 Days</Option>
       </Select>
     </div>
   )
