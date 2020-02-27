@@ -8,7 +8,7 @@ const SearchFilter = () => {
   const [workspaces, dispatchWorkspaces] = useContext(WorkspaceContext)
   const setFilter = val => {
     const show = ({ name }) => {
-      return name.includes(val)
+      return name.toLowerCase().includes(val)
     }
     dispatchWorkspaces({ type: 'filter', payload: { show, name: 'name' } })
   }
@@ -18,7 +18,7 @@ const SearchFilter = () => {
       <AutoComplete
         placeholder="workspace name"
         dataSource={workspaces.map(({ name }) => name)}
-        onChange={val => setFilter(val)}
+        onChange={val => setFilter(val.toLowerCase())}
       />
     </div>
   )
