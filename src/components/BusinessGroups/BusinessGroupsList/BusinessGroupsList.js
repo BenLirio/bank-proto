@@ -48,7 +48,7 @@ const BusinessGroupsList = () => {
   }, [checked])
   const rowRender = ({ index, key, style }) => {
     return (
-      <div key={key} style={style}>
+      <div key={key} style={{ ...style }}>
         <BusinessGroupItem
           name={data[index]}
           checked={checked.has(index)}
