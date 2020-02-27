@@ -33,14 +33,16 @@ const TableHeader = () => {
   return (
     <div className="TableHeader-root">
       <div className="TableHeader-leftPadding"></div>
-      <div className="TableHeader-col TableHeader-col-name">
-        <Checkbox
-          checked={allChecked}
-          indeterminate={someChecked}
-          onChange={e => onChecked(e.target.checked)}
-        >
-          <Text strong>Name</Text>
-        </Checkbox>
+      <div className="TableHeader-col-name-wrapper">
+        <div className="TableHeader-col TableHeader-col-name">
+          <Checkbox
+            checked={allChecked}
+            indeterminate={someChecked}
+            onChange={e => onChecked(e.target.checked)}
+          >
+            <Text strong>Name</Text>
+          </Checkbox>
+        </div>
       </div>
 
       <div

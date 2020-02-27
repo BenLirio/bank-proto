@@ -12,8 +12,6 @@
   border-bottom-color: @border-color-base;
 }
 .TableHeader-col {
-  width: 250px;
-  flex: initial;
   margin: auto 0;
   padding: 0 8px;
 }
@@ -22,6 +20,7 @@
 }
 
 .TableHeader-col-wrapper {
+  flex: 1;
   display: flex;
   transition: all;
   transition-duration: @animation-duration-base;
@@ -33,4 +32,8 @@
 }
 .TableHeader-active {
   background: @table-header-filter-active-bg;
+}
+.TableHeader-col-name-wrapper {
+  display: flex;
+  flex: 1;
 }
