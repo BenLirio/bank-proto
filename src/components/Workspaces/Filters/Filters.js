@@ -7,13 +7,15 @@ import SearchFilter from './SearchFilter/SearchFilter'
 const Filters = () => {
   return (
     <div className={'Filters-root'}>
-      <div className={'Filters-filter'}>
+      <div className={'Filters-filter Filters-filter-date'}>
         <DateFilter />
       </div>
-      <div className={'Filters-filter'}>
+
+      <div className={'Filters-filter Filters-filter-policy'}>
         <PolicyFilter />
       </div>
-      <div className={'Filters-filter'}>
+
+      <div className={'Filters-filter Filters-filter-search'}>
         <SearchFilter />
       </div>
     </div>

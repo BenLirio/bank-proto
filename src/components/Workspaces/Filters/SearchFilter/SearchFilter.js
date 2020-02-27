@@ -13,13 +13,13 @@ const SearchFilter = () => {
     dispatchWorkspaces({ type: 'filter', payload: { show, name: 'name' } })
   }
   return (
-    <>
+    <div className={'Filters-filter-root'}>
       <Text strong>Search Filter</Text>
       <AutoComplete
         dataSource={workspaces.map(({ name }) => name)}
         onChange={val => setFilter(val)}
       />
-    </>
+    </div>
   )
 }
 

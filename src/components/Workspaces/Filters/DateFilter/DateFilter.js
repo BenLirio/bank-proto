@@ -17,10 +17,10 @@ const DateFilter = () => {
     dispatchWorkspaces({ type: 'filter', payload: { show, name: 'date' } })
   }
   return (
-    <>
+    <div className={'Filters-filter-root Filters-filter-root-date'}>
       <Text strong>Date Created</Text>
       <RangePicker onChange={val => setFilter(val)} />
-    </>
+    </div>
   )
 }
 

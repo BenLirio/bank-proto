@@ -14,7 +14,7 @@ const PolicyFilter = () => {
     dispatchWorkspaces({ type: 'filter', payload: { show, name: 'policy' } })
   }
   return (
-    <>
+    <div className={'Filters-filter-root'}>
       <Text strong>Policy</Text>
       <Select defaultValue="all" onChange={val => setFilter(val)}>
         <Option value="all">all</Option>
@@ -22,7 +22,7 @@ const PolicyFilter = () => {
         <Option value="180 days">180 days</Option>
         <Option value="365 days">365 days</Option>
       </Select>
-    </>
+    </div>
   )
 }
 
