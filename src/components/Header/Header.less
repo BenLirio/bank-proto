@@ -1,5 +1,12 @@
+@import '~antd/dist/antd.less';
 .Header-root {
   display: flex;
+  &.ant-layout-header {
+    background-color: @background-color-base;
+    border-color: @border-color-base;
+    border-width: @border-width-base;
+    border-bottom-style: @border-style-base;
+  }
 }
 .Header-icon {
   font-size: 24px;
