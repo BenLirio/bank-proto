@@ -3,6 +3,7 @@ import { AutoSizer, List } from 'react-virtualized'
 import BusinessGroupItem from './BusinessGroupItem'
 import FiltersContext from '../../Workspaces/Filters/filters-context'
 import WorkspaceContext from '../../Workspaces/WorkspaceTable/workspace-context'
+import './BusinessGroupsList.less'
 
 const ROW_HEIGHT = 24
 
@@ -63,6 +64,7 @@ const BusinessGroupsList = () => {
       <AutoSizer>
         {({ width, height }) => (
           <List
+            className="BusinessGroupsList-list"
             width={width}
             height={height}
             rowRenderer={rowRender}
